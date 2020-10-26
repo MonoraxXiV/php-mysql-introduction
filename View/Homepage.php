@@ -1,4 +1,5 @@
 <?php
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -10,6 +11,18 @@
     <title>Homepage</title>
 </head>
 <body>
+<h1>Index of students</h1>
 
+<?php  foreach($students as $student):?>
+
+    <tr>
+
+        <td><?=$student['first_name'];?></td>
+        <td><?=$student['last_name'];?></td>
+        <td><?=$student['email'];?></td>
+        <a href="profile.php?user=<?=$student['id'];?>"<td><?=$student['id'];?></td>
+    </tr>
+    <br>
+<?php endforeach;?>
 </body>
 </html>
