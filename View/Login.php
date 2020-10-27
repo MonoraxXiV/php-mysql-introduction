@@ -10,11 +10,14 @@
     <title>Log in</title>
 </head>
 <body>
+<h1>Welcome back to GenericSite, please log in.</h1>
 <form  method="post">
 <label for="email">e-mail:</label><br>
 <input type="text" id="email" name="email"><br>
+    <span class="error"><?php echo $emailErr;?></span>
 <label for="password">password:</label><br>
 <input type="text" id="password" name="password"><br>
+    <span class="error"><?php echo $passErr;?></span>
 <input type="submit" value="Submit">
 </form>
 </body>
