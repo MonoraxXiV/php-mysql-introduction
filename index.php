@@ -11,6 +11,7 @@ require 'Controller/InsertController.php';
 require 'Controller/HomepageController.php';
 require 'Controller/ProfileController.php';
 require 'Controller/LoginController.php';
+require 'Model/Auth.php';
 function whatIsHappening()
 {
     echo '<h2>$_GET</h2>';
@@ -28,7 +29,7 @@ function whatIsHappening()
 
 //$insertControl= new InsertController();
 //$insertControl->renderInsert($_GET,  $_POST);
-/*
+
 if (isset($_GET['user'])) {
     $ProfileControl = new ProfileController();
     $ProfileControl->ProfileRender($_GET, $_POST);
@@ -38,7 +39,7 @@ if (isset($_GET['user'])) {
     $homepageControl = new HomepageController();
     $homepageControl->renderHomepage($_GET, $_POST);
 }
-*/
 
-$LoginControl=new LoginController();
-$LoginControl->LoginRender($_GET, $_POST);
+
+//$LoginControl=new LoginController();
+//$LoginControl->LoginRender($_GET, $_POST);
