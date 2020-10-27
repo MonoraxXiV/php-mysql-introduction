@@ -7,9 +7,9 @@ ini_set('display_startup_errors', '1');
 error_reporting(E_ALL);
 
 
-
 require 'Controller/InsertController.php';
 require 'Controller/HomepageController.php';
+require 'Controller/ProfileController.php';
 function whatIsHappening()
 {
     echo '<h2>$_GET</h2>';
@@ -27,5 +27,13 @@ function whatIsHappening()
 //$insertControl= new InsertController();
 //$insertControl->renderInsert($_GET,  $_POST);
 
-$homepageControl= new HomepageController();
-$homepageControl->renderHomepage($_GET,  $_POST);
+//shows page when a user is selected
+if (isset($_GET['user'])) {
+    $ProfileControl = new ProfileController();
+    $ProfileControl->ProfileRender($_GET, $_POST);
+} else {
+
+
+    $homepageControl = new HomepageController();
+    $homepageControl->renderHomepage($_GET, $_POST);
+}
