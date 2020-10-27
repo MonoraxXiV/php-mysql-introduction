@@ -1,6 +1,5 @@
 <?php
-
-
+require 'Model/Student.php';
 class Connection
 {
  private PDO $pdo;
@@ -16,7 +15,7 @@ class Connection
         // Try to figure out what these should be for you
         $dbhost    = "localhost";//probably localhost
         $dbuser    = "becode";
-        $dbpass    = "becode!123";
+        $dbpass    = "Becode!123";
         $db        = "becode";
 
         $driverOptions = [
@@ -37,4 +36,9 @@ class Connection
         return $this->pdo;
     }
 
+    public function getStudent(){
+
+
+
+}
 }
