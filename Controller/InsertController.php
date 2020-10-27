@@ -56,19 +56,24 @@ public $passConfirm;
 
             if ($this->password !== $this->passConfirm) {
                 $this->passConfErr = " passwords do not match" . '<br>';
+            }else{
+                $hashed=password_hash($this->password, PASSWORD_DEFAULT);
+
             }
             if ($this->fNameErr == "" && $this->lNameErr == "" && $this->emailErr == "" && $this->passConfErr == "" && $this->passErr == "") {
                 //Post code to database.
                 $connector = new Connection();
                 $pdo = $connector->getPdo();
 
-                $handle = $pdo->prepare("INSERT INTO student VALUES (:id, :first_name, :last_name, :email, :created_at )");
+                $handle = $pdo->prepare("INSERT INTO student VALUES (:id, :first_name, :last_name, :email, :created_at, :password )");
                 $handle->bindValue(':first_name', $this->firstName);
                 $handle->bindValue(':last_name', $this->lastName);
                 $handle->bindValue(':email', $this->email);
                 $handle->bindValue(':created_at', $date->format('Y-m-d H:i:s'));
                 $handle->bindValue(':id', $id);
+                $handle->bindValue(':password', $hashed);
                 $handle->execute();
+                //have to find a way to show that if this succeeds, return a boolean, then switch controller depending on boolean status.
             }
         }
     }
