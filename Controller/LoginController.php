@@ -18,7 +18,8 @@ class LoginController
             }else {
                 $password=$_POST['password'];
             }
-
+            $Auth=new Auth();
+            $isLoggedIn=$Auth->getLogin($email,$password);
 
         }
 
