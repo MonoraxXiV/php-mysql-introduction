@@ -4,13 +4,15 @@ require 'Model/Connection.php';
 
 class InsertController
 {
+    public function inputStudentData(){
 
+
+    }
 
     public function renderInsert(array $GET, array $POST)
     {
-
         $firstName = $lastName = $email = "";
-        $fNameErr = $lNameErr = $emailErr = "";
+        $fNameErr = $lNameErr = $emailErr = $passErr= $passConfErr="";
         $date = new DateTime();
         $id = 0;
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -33,7 +35,18 @@ class InsertController
                 $emailErr = "E-mail adress is invalid" . '<br>';
             }
 
-            if ($fNameErr == "" && $lNameErr == "" && $emailErr == "") {
+            if (empty($_POST['password'])) {
+                $passErr = "password is required" . '<br>';
+            } else {
+                $password=$_POST['password'];
+            }
+            if (empty($_POST['passwordConf'])) {
+                $passConfErr = "please confirm the password" . '<br>';
+            }else {
+                $passConfirm=$_POST['passwordConf'];
+            }
+
+            if ($fNameErr == "" && $lNameErr == "" && $emailErr == "" && $passConfErr== "" && $passErr =="") {
                 //Post code to database.
                 $connector = new Connection();
                 $pdo = $connector->getPdo();
@@ -49,7 +62,7 @@ class InsertController
 
 
             var_dump($POST);
-            require 'View/insert.php';
+            require 'View/register.php';
         }
 
 
