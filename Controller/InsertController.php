@@ -46,6 +46,9 @@ class InsertController
                 $passConfirm=$_POST['passwordConf'];
             }
 
+            if ($password !== $passConfirm){
+                $passConfErr=" passwords do not match". '<br>';
+            }
             if ($fNameErr == "" && $lNameErr == "" && $emailErr == "" && $passConfErr== "" && $passErr =="") {
                 //Post code to database.
                 $connector = new Connection();
