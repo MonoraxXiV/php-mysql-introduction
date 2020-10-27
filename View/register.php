@@ -1,8 +1,4 @@
 <?php
-
-
-
-
 ?>
 <!doctype html>
 <html lang="en">
@@ -26,6 +22,13 @@
     <label for="email">e-mail:</label><br>
     <input type="text" id="email" name="email" value="<?php echo $email ?>"><br>
     <span class="error"><?php echo $emailErr;?></span>
+
+    <label for="password">password:</label><br>
+    <input type="text" id="password" name="password"><br>
+    <span class="error"><?php echo $passErr;?></span>
+    <label for="password">confirm password:</label><br>
+    <input type="text" id="passwordConf" name="passwordConf"><br>
+    <span class="error"><?php echo $passConfErr;?></span>
     <input type="submit" value="Submit">
 
 
