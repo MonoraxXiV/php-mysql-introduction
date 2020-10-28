@@ -3,18 +3,28 @@
 
 class Auth
 {
-    public function checkLogin($email, $hash){
+    public function getLogin($email, $hash)
+    {
         //check if e-mail is correct.
         //Check if $hash/password matches
         // then return true or false depending on match or not.
-        $Connect= new Connection();
-        $pdo=$Connect->getPdo();
+        $Connect = new Connection();
+        $pdo = $Connect->getPdo();
         $handle = $pdo->prepare('SELECT * FROM student WHERE email = :email');
-        $handle->bindParam(':id', $email);
+        $handle->bindParam(':email', $email);
         $handle->execute();
         $check = $handle->fetch();
+        //https://www.php.net/manual/en/function.password-verify.php
 
+        if (password_verify($hash, $check['password'])) {
 
-        return true;
+            return true;
+        } else {
+
+            return false;
+        }
+
     }
+
+
 }
