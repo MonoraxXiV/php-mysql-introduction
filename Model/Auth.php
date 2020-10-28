@@ -3,6 +3,9 @@
 
 class Auth
 {
+    Public function checkEmail(){
+
+    }
     public function getLogin($email, $hash)
     {
         //check if e-mail is correct.
@@ -18,11 +21,14 @@ class Auth
 
         if (password_verify($hash, $check['password'])) {
 
-            return true;
+            return $isLoggedin= true;
         } else {
+            echo "email and/ or password was incorrect";
+            return $isLoggedin=false;
 
-            return false;
         }
+
+
 
     }
 
