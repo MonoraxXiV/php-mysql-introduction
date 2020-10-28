@@ -35,12 +35,13 @@ public $passConfirm;
                 $this->lastName = $_POST['lname'];
             }
 
-            if (isset($_POST['email'])) {
-                $this->email = $_POST['email'];
-                filter_var($this->email, FILTER_VALIDATE_EMAIL);
-            } else {
+            if (empty($_POST['email'])) {
+                $this->emailErr= "E-mail is required." ."<br>";
+            } elseif (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
 
                 $this->emailErr = "E-mail adress is invalid" . '<br>';
+            }else{
+                $this->email=$_POST['email'];
             }
 
             if (empty($_POST['password'])) {
