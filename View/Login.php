@@ -20,8 +20,8 @@
 <input type="text" id="password" name="password"><br>
     <span class="error"><?php echo $this->passErr;?></span>
 <input type="submit" value="Submit">
-    <!-- put in a link that actually works or put it in the if statements when switching -->
-    <p>don't have an account yet? <a href="register.php">Register here</a></p>
+    <!-- Link now changes when you click the link-->
+    <p>don't have an account yet? <a href="?page=Register">Register here</a></p>
 </form>
 </body>
 </html>
