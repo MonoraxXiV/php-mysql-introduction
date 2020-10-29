@@ -20,7 +20,7 @@
         <td><?=$student['first_name'];?></td>
         <td><?=$student['last_name'];?></td>
         <td><?=$student['email'];?></td>
-        <a href="?user=<?=$student['id'];?>"<td>Profile.php?user=<?=$student['id'];?></td></a>
+        <a href="?user=<?=$student['id'];?>"<td><?=$student['first_name'];?></td></a>
         <br>
     </tr>
 
