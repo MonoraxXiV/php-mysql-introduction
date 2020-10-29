@@ -25,21 +25,26 @@ function whatIsHappening()
 }
 
 //whatishappening();
+$ProfileControl = new ProfileController();
+$homepageControl = new HomepageController();
+$LoginControl = new LoginController();
+$LoginControl->getLogin($_GET,$_POST);
+$auth = new Auth();
+$isLoggedIn=$auth->getLogin($_POST['email'], $_POST['password']);
+
 
 
 //$insertControl= new InsertController();
 //$insertControl->renderInsert($_GET,  $_POST);
 
-if (isset($_GET['user'])) {
-    $ProfileControl = new ProfileController();
-    $ProfileControl->ProfileRender($_GET, $_POST);
+if ($isLoggedIn == true) {
+    if (isset($_GET['user'])) {
+
+        $ProfileControl->ProfileRender($_GET, $_POST);
+    } else {
+        $homepageControl->renderHomepage($_GET, $_POST);
+    }
 } else {
 
-
-    $homepageControl = new HomepageController();
-    $homepageControl->renderHomepage($_GET, $_POST);
+    $LoginControl->LoginRender($_GET, $_POST);
 }
-
-
-//$LoginControl=new LoginController();
-//$LoginControl->LoginRender($_GET, $_POST);
